@@ -39,5 +39,9 @@ RSpec.describe User, type: :model do
     it 'validar si la edad es menor o igual a 100' do
       should validate_numericality_of(:age).is_less_than_or_equal_to(100)
     end
+
+    it 'validar que solamente se pueden crear emplados y propierator en type' do
+      should validate_inclusion_of(:type).in_array(%w[Owner Employee])
+    end
   end
 end
