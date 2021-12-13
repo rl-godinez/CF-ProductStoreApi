@@ -5,7 +5,11 @@ RSpec.describe V1::UsersController, type: :controller do
     let(:user) do
       { email: Faker::Internet.email,
         age: rand(18..100),
-        password: Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true) }
+        password: Faker::Internet.password(min_length: 10, max_length: 20, mix_case: true),
+        store_attributes: {
+          name: Faker::Games::Zelda.game
+        }
+      }
     end
 
     context 'usuario registrado correctamente' do
@@ -20,7 +24,12 @@ RSpec.describe V1::UsersController, type: :controller do
 
       context 'respuesta con valores correctos de user' do
         subject { payload_test }
-        it { is_expected.to include(:id, :email, :age) }
+        it { is_expected.to include(:id, :email, :age, :store) }
+      end
+
+      context 'respuesta con valores correctos de store' do
+        subject { payload_test[:store] }
+        it { is_expected.to include(:id, :name, :created_at, :updated_at) }
       end
     end
 

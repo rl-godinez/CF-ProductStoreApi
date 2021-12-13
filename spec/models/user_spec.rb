@@ -43,5 +43,9 @@ RSpec.describe User, type: :model do
     it 'validar que solamente se pueden crear emplados y propierator en type' do
       should validate_inclusion_of(:type).in_array(%w[Owner Employee])
     end
+
+    it 'validar si existe relacion un store' do
+      should belong_to(:store)
+    end
   end
 end

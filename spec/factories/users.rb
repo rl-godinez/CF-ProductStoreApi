@@ -4,5 +4,6 @@ FactoryBot.define do
     age { 32 }
     password_digest { "MyString" }
     type { "" }
+    store
   end
 end
