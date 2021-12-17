@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :type, inclusion: { in: %w[Employee Owner] }
 
   belongs_to :store
+  has_many :tokens
 
   accepts_nested_attributes_for :store
 end
