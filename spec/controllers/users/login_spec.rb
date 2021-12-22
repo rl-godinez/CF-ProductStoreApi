@@ -23,6 +23,11 @@ RSpec.describe V1::UsersController, type: :controller do
         subject { payload_test }
         it { is_expected.to include(:id, :email, :age, :store) }
       end
+
+      context 'respuesta de token correcta' do
+        subject { payload_test[:token] }
+        it { is_expected.to include(:id, :token, :expires_at) }
+      end
     end
 
     context 'inicio de sesion erroneo' do

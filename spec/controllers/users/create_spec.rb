@@ -24,12 +24,18 @@ RSpec.describe V1::UsersController, type: :controller do
 
       context 'respuesta con valores correctos de user' do
         subject { payload_test }
-        it { is_expected.to include(:id, :email, :age, :store) }
+        it { is_expected.to include(:id, :email, :age, :store, :token) }
       end
 
       context 'respuesta con valores correctos de store' do
         subject { payload_test[:store] }
         it { is_expected.to include(:id, :name, :created_at, :updated_at) }
+      end
+
+      context 'respuesta con valores correctos de token' do
+        subject { payload_test[:token] }
+
+        it { is_expected.to include(:id, :token, :expires_at) }
       end
     end
 
