@@ -15,5 +15,9 @@ RSpec.describe Store, type: :model do
     it 'validar relacion con muchos empleados' do
       should have_many(:employees)
     end
+
+    it 'validar relacion con muchos productos' do
+      should have_many(:products)
+    end
   end
 end
