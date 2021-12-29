@@ -5,7 +5,8 @@ module V1
     before_action :set_product, only: %i[update]
 
     def index
-
+      @products = @store.products
+      render :index, status: :ok
     end
 
     def create
