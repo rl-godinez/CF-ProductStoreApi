@@ -1,11 +1,20 @@
 require 'rails_helper'
 
 describe 'Rutas de resource products' do
-  it 'ruta para crear un producto' do
+  it 'ruta POST para crear un producto' do
     expect(post: 'v1/products').to route_to(
       format: 'json',
       controller: 'v1/products',
       action: 'create'
+    )
+  end
+
+  it 'rupa PUT para actualizar un producto' do
+    expect(put: 'v1/products/1').to route_to(
+      format: 'json',
+      controller: 'v1/products',
+      action: 'update',
+      id: '1'
     )
   end
 end

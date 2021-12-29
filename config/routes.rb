@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       end
 
       resources :stores, only: :show
-      resources :products, only: :create
+      resources :products, only: %i[create update]
     end
   end
 end
