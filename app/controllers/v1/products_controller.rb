@@ -4,6 +4,10 @@ module V1
     before_action :set_store
     before_action :set_product, only: %i[update]
 
+    def index
+
+    end
+
     def create
       @product = @store.products.new(product_params)
 

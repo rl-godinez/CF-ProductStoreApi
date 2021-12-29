@@ -9,12 +9,20 @@ describe 'Rutas de resource products' do
     )
   end
 
-  it 'rupa PUT para actualizar un producto' do
+  it 'ruta PUT para actualizar un producto' do
     expect(put: 'v1/products/1').to route_to(
       format: 'json',
       controller: 'v1/products',
       action: 'update',
       id: '1'
+    )
+  end
+
+  it 'ruta INDEX de products' do
+    expect(get: 'v1/products').to route_to(
+      format: 'json',
+      controller: 'v1/products',
+      action: 'index'
     )
   end
 end
