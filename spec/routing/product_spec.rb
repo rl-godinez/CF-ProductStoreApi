@@ -25,4 +25,13 @@ describe 'Rutas de resource products' do
       action: 'index'
     )
   end
+
+  it 'ruta DESTROY de productos' do
+    expect(delete: 'v1/products/1').to route_to(
+      format: 'json',
+      controller: 'v1/products',
+      action: 'destroy',
+      id: '1'
+    )
+  end
 end
