@@ -40,7 +40,7 @@ describe 'Rutas de resource products' do
       format: 'json',
       controller: 'v1/products',
       action: 'restore',
-      product_id: '1'
+      id: '1'
     )
   end
 end
