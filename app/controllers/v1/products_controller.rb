@@ -2,7 +2,7 @@ module V1
   class ProductsController < ApplicationController
     before_action :authenticate_user!
     before_action :set_store
-    before_action :set_product, only: %i[update destroy]
+    before_action :set_product, only: %i[update destroy restore]
 
     def index
       @products = @store.products
@@ -32,6 +32,13 @@ module V1
       head :ok
     end
 
+    def restore
+      rerturn unless @product.deleted?
+
+      @product.restore
+      render :show, status: :ok
+    end
+
     private
 
     def product_params
@@ -43,7 +50,7 @@ module V1
     end
 
     def set_product
-      @product = @store.products.find_by(id: params[:id])
+      @product = @store.products.with_deleted.find_by(id: params[:id])
 
       head :not_found unless @product
     end

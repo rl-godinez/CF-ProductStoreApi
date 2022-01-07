@@ -34,4 +34,13 @@ describe 'Rutas de resource products' do
       id: '1'
     )
   end
+
+  it 'ruta RESTORE de productos' do
+    expect(post: 'v1/products/1/restore').to route_to(
+      format: 'json',
+      controller: 'v1/products',
+      action: 'restore',
+      product_id: '1'
+    )
+  end
 end

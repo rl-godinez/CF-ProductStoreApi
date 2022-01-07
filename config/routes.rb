@@ -7,7 +7,9 @@ Rails.application.routes.draw do
       end
 
       resources :stores, only: :show
-      resources :products
+      resources :products do
+        post :restore, on: :member
+      end
     end
   end
 end
