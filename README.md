@@ -10,14 +10,12 @@ ruby 3.0.0p0
 Rails 6.1.4.1
 
 * System dependencies
--- docker
--- docker-compose
+docker
+docker-compose
 
 * Configuration
--- To execute the project in docker only run `docker-compose up -d`
--- To open the docker terminal for this project run `docker exec -it codigo_facilito_store_api_1 bash`
-
-* Database creation
+To execute the project in docker only run `docker-compose up -d`
+To open the docker terminal for this project run `docker exec -it codigo_facilito_store_api_1 bash`
 
 * How to run the test suite
--- rspec spec -f documentation
+rspec spec -f documentation
